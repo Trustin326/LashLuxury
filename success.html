@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Success • Lash Luxury Academy</title>
+</head>
+<body>
+  <script src="assets/config.js"></script>
+  <script src="assets/api.js"></script>
+  <script>
+    async function finishUnlock(){
+      const email = localStorage.getItem("pendingUser");
+      if(!email){
+        window.location = "dashboard.html";
+        return;
+      }
+
+      try{
+        await api("unlock", { email });
+        const user = JSON.parse(localStorage.getItem("user") || "null");
+        if(user){
+          user.paid = "yes";
+          localStorage.setItem("user", JSON.stringify(user));
+        }
+      }catch(e){}
+      localStorage.setItem("paid", "yes");
+      window.location = "dashboard.html";
+    }
+    finishUnlock();
+  </script>
+</body>
+</html>

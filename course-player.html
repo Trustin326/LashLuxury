@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Player • Lash Luxury Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body onload="renderCoursePlayer()">
+  <div class="site-shell">
+    <div id="global-nav"></div>
+
+    <section class="player-grid">
+      <div class="player-main luxury-panel">
+        <p class="eyebrow">NOW PLAYING</p>
+        <h1 class="page-title smaller-title" id="playerCourseTitle">Classic Lash Certification</h1>
+
+        <div class="video-shell">
+          <div class="video-placeholder">
+            <div class="play-badge">▶</div>
+            <p>Luxury Training Video Area</p>
+          </div>
+        </div>
+
+        <div class="player-stats-row">
+          <div class="dashboard-mini-card">
+            <span>Lesson Duration</span>
+            <strong id="lessonDuration">12 min</strong>
+          </div>
+          <div class="dashboard-mini-card">
+            <span>Course Progress</span>
+            <strong id="lessonProgress">20%</strong>
+          </div>
+        </div>
+
+        <div class="player-details">
+          <h3 id="lessonTitle">Lesson 1: Tools, Setup & Sanitation</h3>
+          <p id="lessonBody">
+            Learn workstation setup, sanitation, lash tools, adhesives, patch placement, and premium prep before application.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-gold" onclick="markLessonComplete()">Mark Complete</button>
+          <button class="btn btn-dark" onclick="downloadLessonNotes()">Download Notes</button>
+        </div>
+      </div>
+
+      <aside class="player-sidebar luxury-panel">
+        <p class="eyebrow">COURSE LESSONS</p>
+        <div class="lesson-list" id="lessonList"></div>
+      </aside>
+    </section>
+  </div>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/course-data.js"></script>
+  <script src="assets/course-player.js"></script>
+</body>
+</html>

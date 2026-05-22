@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard • Lash Luxury Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body onload="bootDashboard()">
+  <div class="site-shell">
+    <div id="global-nav"></div>
+
+    <section class="page-hero luxury-panel compact-hero dashboard-hero">
+      <div class="dashboard-hero-copy">
+        <p class="eyebrow">STUDENT DASHBOARD</p>
+        <h1 class="page-title">Your Luxury Lash Learning Hub</h1>
+        <p class="page-sub">
+          Track your progress, continue lessons, unlock advanced training, and stay on top of your certification path.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="courses.html">Continue Learning</a>
+          <a class="btn btn-dark" href="pricing.html">Upgrade Access</a>
+        </div>
+      </div>
+
+      <div class="dashboard-hero-side">
+        <div class="dashboard-mini-card">
+          <span>Active Course</span>
+          <strong id="activeCourseName">Classic Lash Certification</strong>
+        </div>
+        <div class="dashboard-mini-card">
+          <span>Completion</span>
+          <strong id="overallProgress">42%</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-stats-grid">
+      <div class="stat-box luxury-panel">
+        <strong id="statCourses">3</strong>
+        <span>Courses Enrolled</span>
+      </div>
+      <div class="stat-box luxury-panel">
+        <strong id="statHours">14h</strong>
+        <span>Hours Completed</span>
+      </div>
+      <div class="stat-box luxury-panel">
+        <strong id="statCertificates">1</strong>
+        <span>Certificates Ready</span>
+      </div>
+      <div class="stat-box luxury-panel">
+        <strong id="statTier">Starter</strong>
+        <span>Current Access Tier</span>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <div class="luxury-panel dashboard-main-panel">
+        <div class="section-head">
+          <h2>YOUR COURSES</h2>
+          <a href="courses.html">View full library →</a>
+        </div>
+        <div id="dashboardCourses" class="course-grid course-grid-2"></div>
+      </div>
+
+      <aside class="dashboard-side-stack">
+        <div class="luxury-panel side-panel-block">
+          <p class="eyebrow">NEXT STEP</p>
+          <h3>Complete Your Current Lesson</h3>
+          <p>Continue where you left off and keep your momentum strong.</p>
+          <a class="btn btn-gold" href="course-player.html?course=classic-cert">Resume Lesson</a>
+        </div>
+
+        <div class="luxury-panel side-panel-block">
+          <p class="eyebrow">AI SUPPORT</p>
+          <h3>Ask The AI Lash Coach</h3>
+          <p>Get help with lash styling, retention, client care, pricing, and branding.</p>
+          <a class="btn btn-dark" href="ai-assistant.html">Open AI Coach</a>
+        </div>
+
+        <div class="luxury-panel side-panel-block">
+          <p class="eyebrow">UPGRADE</p>
+          <h3>Unlock Premium Training</h3>
+          <p>Gain access to advanced lessons, business tools, and premium resources.</p>
+          <button class="btn btn-gold" onclick="buy()">Unlock Full Access</button>
+        </div>
+      </aside>
+    </section>
+  </div>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/api.js"></script>
+  <script src="assets/course-data.js"></script>
+  <script src="assets/stripe.js"></script>
+  <script>
+    async function bootDashboard(){
+      let user = null;
+      try{
+        user = JSON.parse(localStorage.getItem("user") || "null");
+      }catch(e){
+        user = null;
+      }
+
+      const container = document.getElementById("dashboardCourses");
+      container.innerHTML = "";
+
+      let courses = [
+        { id: "classic-cert", title: "Classic Lash Certification", progress: 42, desc: "Foundation skills, isolation, setup, and luxury client prep.", level: "Beginner", locked: false },
+        { id: "volume-mastery", title: "Volume Lash Mastery", progress: 10, desc: "Advanced fan creation, styling maps, and fuller luxury sets.", level: "Advanced", locked: false },
+        { id: "business-bootcamp", title: "Lash Business Bootcamp", progress: 0, desc: "Pricing, branding, booking growth, and retention offers.", level: "Business", locked: true }
+      ];
+
+      try{
+        if(user && CONFIG.API_URL && CONFIG.API_URL !== "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"){
+          const res = await api("getCourses", { email: user.email });
+          if(res && res.status === "ok" && Array.isArray(res.courses) && res.courses.length){
+            courses = res.courses.map((c, index) => ({
+              id: c.id || ["classic-cert","volume-mastery","business-bootcamp"][index] || String(index + 1),
+              title: c.title || "Course",
+              progress: Number(c.progress || 0),
+              desc: c.progress > 0 ? "Continue your progress and complete your next lesson." : "Upgrade or begin this course to unlock its full training path.",
+              level: c.progress > 0 ? "In Progress" : "Premium",
+              locked: c.progress <= 0 && index > 1
+            }));
+          }
+        }
+      }catch(e){}
+
+      const active = courses.find(c => !c.locked) || courses[0];
+      document.getElementById("activeCourseName").textContent = active?.title || "Classic Lash Certification";
+      document.getElementById("overallProgress").textContent = `${active?.progress || 0}%`;
+      const paid = user && user.paid === "yes";
+      document.getElementById("statTier").textContent = paid ? "Premium" : "Starter";
+
+      courses.forEach(course => {
+        const card = document.createElement("article");
+        card.className = "course-card";
+        card.innerHTML = `
+          <div class="course-thumb">
+            <img src="images/hero.jpg" alt="${escapeHtml(course.title)}">
+          </div>
+          <div class="course-body">
+            <h3>${escapeHtml(course.title)}</h3>
+            <p>${escapeHtml(course.desc)}</p>
+            <div class="progress-wrap">
+              <div class="progress-top">
+                <span>Progress</span>
+                <span>${course.progress}%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:${Math.max(0, Math.min(100, course.progress))}%"></div>
+              </div>
+            </div>
+            <div class="course-meta">
+              <span>${escapeHtml(course.level)}</span>
+              <span>${course.locked ? "Locked" : "Open"}</span>
+            </div>
+            <div class="card-actions">
+              ${course.locked
+                ? `<a class="btn btn-dark" href="pricing.html">Upgrade</a>`
+                : `<a class="btn btn-gold" href="course-player.html?course=${encodeURIComponent(course.id)}">Continue</a>`}
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function escapeHtml(value){
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+  </script>
+</body>
+</html>

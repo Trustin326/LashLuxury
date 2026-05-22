@@ -1,0 +1,16 @@
+Artist listing verification notes
+
+This build now requires:
+- BPP verification upload
+- License or certificate upload
+- Optional logo upload
+- Optional profile photo upload(s)
+
+Current behavior:
+- Files are captured on the page and the logo preview is stored locally for demo/prototype flow
+- Pending profile data is stored in browser localStorage until payment redirect
+
+Important:
+For real production use, verification documents should NOT be stored only in the browser.
+You should connect this form to a secure backend such as Google Apps Script + Google Drive,
+or another secure storage system, so submitted documents can be reviewed manually before approval.

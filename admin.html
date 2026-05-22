@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard • Lash Luxury Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body onload="loadAdmin()">
+  <div class="site-shell">
+    <div id="global-nav"></div>
+
+    <section class="page-hero luxury-panel compact-hero">
+      <div>
+        <p class="eyebrow">OWNER CONTROL CENTER</p>
+        <h1 class="page-title">Luxury Admin Dashboard</h1>
+        <p class="page-sub">
+          Monitor users, course sales, estimated revenue, and platform growth from one premium control center.
+        </p>
+      </div>
+    </section>
+
+    <section class="admin-stats-grid">
+      <div class="stat-box luxury-panel">
+        <strong id="users">0</strong>
+        <span>Total Users</span>
+      </div>
+      <div class="stat-box luxury-panel">
+        <strong>$<span id="revenue">0</span></strong>
+        <span>Estimated Revenue</span>
+      </div>
+      <div class="stat-box luxury-panel">
+        <strong>9</strong>
+        <span>Total Pages</span>
+      </div>
+      <div class="stat-box luxury-panel">
+        <strong>93%</strong>
+        <span>Completion Rate</span>
+      </div>
+    </section>
+
+    <section class="admin-grid">
+      <div class="luxury-panel admin-table-card">
+        <div class="section-head">
+          <h2>RECENT STUDENTS</h2>
+        </div>
+        <div class="luxury-table">
+          <div class="table-row table-head">
+            <span>Name</span>
+            <span>Status</span>
+            <span>Plan</span>
+          </div>
+          <div class="table-row">
+            <span>jasmine@email.com</span>
+            <span>Active</span>
+            <span>Premium</span>
+          </div>
+          <div class="table-row">
+            <span>mila@email.com</span>
+            <span>Active</span>
+            <span>Starter</span>
+          </div>
+          <div class="table-row">
+            <span>amber@email.com</span>
+            <span>Pending</span>
+            <span>Starter</span>
+          </div>
+          <div class="table-row">
+            <span>nina@email.com</span>
+            <span>Active</span>
+            <span>Elite</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="luxury-panel admin-side-stack">
+        <div class="side-metric">
+          <h3>Top Seller</h3>
+          <p>Volume Lash Mastery</p>
+        </div>
+        <div class="side-metric">
+          <h3>Best Funnel</h3>
+          <p>Instagram Reels Promo Funnel</p>
+        </div>
+        <div class="side-metric">
+          <h3>Affiliate Payouts</h3>
+          <p>$1,240 pending this month</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/api.js"></script>
+  <script>
+    async function loadAdmin(){
+      try{
+        const res = await api("admin");
+        document.getElementById("users").textContent = res.users ?? 0;
+        document.getElementById("revenue").textContent = res.revenue ?? 0;
+      }catch(e){
+        document.getElementById("users").textContent = "0";
+        document.getElementById("revenue").textContent = "0";
+      }
+    }
+  </script>
+</body>
+</html>

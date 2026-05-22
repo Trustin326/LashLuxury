@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account • Lash Luxury Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="site-shell auth-shell">
+    <div id="global-nav"></div>
+
+    <section class="auth-grid">
+      <div class="auth-copy luxury-panel">
+        <p class="eyebrow">START YOUR JOURNEY</p>
+        <h1 class="auth-title">Create Your Lash Luxury Academy Account</h1>
+        <p class="auth-sub">
+          Join a premium beauty education platform built to help lash artists grow their skill, confidence, and brand.
+        </p>
+
+        <div class="auth-feature-list">
+          <div class="mini-feature"><span>✓</span><p>Luxury student dashboard access</p></div>
+          <div class="mini-feature"><span>✓</span><p>Premium training and resource vault</p></div>
+          <div class="mini-feature"><span>✓</span><p>Community and AI support tools</p></div>
+        </div>
+      </div>
+
+      <div class="auth-card luxury-panel">
+        <div class="auth-card-header">
+          <p class="eyebrow">NEW STUDENT REGISTRATION</p>
+          <h2>Create Account</h2>
+        </div>
+
+        <form class="luxury-form" onsubmit="event.preventDefault(); register();">
+          <label>Email Address</label>
+          <input id="email" type="email" placeholder="you@example.com" required>
+          <label>Password</label>
+          <input id="password" type="password" placeholder="Create a password" required>
+          <button class="btn btn-gold btn-lg form-btn" type="submit">Create Account</button>
+        </form>
+
+        <div class="auth-links-row">
+          <a href="login.html">Already have an account?</a>
+        </div>
+
+        <div class="auth-note">After signing up, you can unlock premium access and advanced course pathways.</div>
+      </div>
+    </section>
+  </div>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/api.js"></script>
+  <script src="assets/auth.js"></script>
+</body>
+</html>

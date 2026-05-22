@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses • Lash Luxury Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body onload="renderCoursesPage()">
+  <div class="site-shell">
+    <div id="global-nav"></div>
+
+    <section class="page-hero luxury-panel compact-hero">
+      <div>
+        <p class="eyebrow">PREMIUM COURSE LIBRARY</p>
+        <h1 class="page-title">Explore Every Course In Your Beauty Education Ecosystem</h1>
+        <p class="page-sub">
+          Learn foundations, volume, correction, retention, client experience, branding, and business growth.
+        </p>
+      </div>
+    </section>
+
+    <section class="courses-section">
+      <div class="section-head">
+        <h2>ALL COURSES</h2>
+        <a href="pricing.html">Upgrade for full access →</a>
+      </div>
+
+      <div id="coursesGrid" class="course-grid"></div>
+    </section>
+  </div>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/course-data.js"></script>
+  <script src="assets/courses.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login • Lash Luxury Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="site-shell auth-shell">
+    <div id="global-nav"></div>
+
+    <section class="auth-grid">
+      <div class="auth-copy luxury-panel">
+        <p class="eyebrow">WELCOME BACK</p>
+        <h1 class="auth-title">Log In To Your Luxury Learning Experience</h1>
+        <p class="auth-sub">
+          Access your lessons, certificates, AI coaching, resources, and student dashboard from one elegant platform.
+        </p>
+
+        <div class="auth-feature-list">
+          <div class="mini-feature"><span>✓</span><p>Resume your course progress instantly</p></div>
+          <div class="mini-feature"><span>✓</span><p>Access AI help and premium resources</p></div>
+          <div class="mini-feature"><span>✓</span><p>Track certifications and course completion</p></div>
+        </div>
+      </div>
+
+      <div class="auth-card luxury-panel">
+        <div class="auth-card-header">
+          <p class="eyebrow">STUDENT ACCESS</p>
+          <h2>Sign In</h2>
+        </div>
+
+        <form class="luxury-form" onsubmit="event.preventDefault(); login();">
+          <label>Email Address</label>
+          <input id="email" type="email" placeholder="you@example.com" required>
+          <label>Password</label>
+          <input id="password" type="password" placeholder="Enter your password" required>
+          <button class="btn btn-gold btn-lg form-btn" type="submit">Log In</button>
+        </form>
+
+        <div class="auth-links-row">
+          <a href="register.html">Create account</a>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <div class="auth-note">Owner email automatically routes to the admin dashboard.</div>
+      </div>
+    </section>
+  </div>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/api.js"></script>
+  <script src="assets/auth.js"></script>
+</body>
+</html>

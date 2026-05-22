@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing • Lash Luxury Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <div id="global-nav"></div>
+
+    <section class="page-hero luxury-panel compact-hero">
+      <div>
+        <p class="eyebrow">PREMIUM ACCESS OPTIONS</p>
+        <h1 class="page-title">Choose The Best Plan For Your Lash Growth</h1>
+        <p class="page-sub">
+          Start with a beginner offer or unlock the complete beauty education and business system.
+        </p>
+      </div>
+    </section>
+
+    <section class="pricing-grid">
+      <article class="pricing-card luxury-panel">
+        <p class="pricing-label">STARTER</p>
+        <h3>$47</h3>
+        <span class="pricing-sub">One-time access</span>
+        <ul class="pricing-list">
+          <li>Classic lash foundations</li>
+          <li>Starter dashboard</li>
+          <li>Basic worksheets</li>
+          <li>1 certificate path</li>
+        </ul>
+        <a class="btn btn-dark pricing-btn" href="#">Choose Starter</a>
+      </article>
+
+      <article class="pricing-card luxury-panel featured-pricing">
+        <p class="pricing-label">PREMIUM</p>
+        <h3>$97</h3>
+        <span class="pricing-sub">Most popular</span>
+        <ul class="pricing-list">
+          <li>Classic + volume courses</li>
+          <li>AI lash coach access</li>
+          <li>Progress tracking</li>
+          <li>Certificates + business resources</li>
+          <li>Community access</li>
+        </ul>
+        <button class="btn btn-gold pricing-btn" onclick="buy()">Choose Premium</button>
+      </article>
+
+      <article class="pricing-card luxury-panel">
+        <p class="pricing-label">ELITE</p>
+        <h3>$297</h3>
+        <span class="pricing-sub">Business growth bundle</span>
+        <ul class="pricing-list">
+          <li>Everything in Premium</li>
+          <li>Business Bootcamp</li>
+          <li>Offer and pricing templates</li>
+          <li>Luxury branding resources</li>
+          <li>Advanced scaling lessons</li>
+        </ul>
+        <a class="btn btn-dark pricing-btn" href="#">Choose Elite</a>
+      </article>
+    </section>
+  </div>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/stripe.js"></script>
+</body>
+</html>

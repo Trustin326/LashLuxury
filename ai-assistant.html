@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Lash Coach • Lash Luxury Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <div id="global-nav"></div>
+
+    <section class="page-hero luxury-panel compact-hero">
+      <div>
+        <p class="eyebrow">AI TRAINING SUPPORT</p>
+        <h1 class="page-title">Your Luxury AI Lash Coach</h1>
+        <p class="page-sub">
+          Ask about lash mapping, retention, isolation, styling, client care, pricing, content, and business growth.
+        </p>
+      </div>
+    </section>
+
+    <section class="ai-grid">
+      <div class="luxury-panel ai-main-panel">
+        <div class="section-head">
+          <h2>ASK ANYTHING</h2>
+        </div>
+
+        <div class="ai-suggestion-row">
+          <button class="chip-btn" onclick="setPrompt('How do I improve lash retention for oily clients?')">Retention tips</button>
+          <button class="chip-btn" onclick="setPrompt('Give me a wispy lash map for almond eyes.')">Wispy map</button>
+          <button class="chip-btn" onclick="setPrompt('How should I price my full sets and fills?')">Pricing help</button>
+          <button class="chip-btn" onclick="setPrompt('Create an Instagram caption for my luxury lash brand.')">Caption idea</button>
+        </div>
+
+        <div class="ai-input-wrap">
+          <label for="aiInput">Your Question</label>
+          <textarea id="aiInput" placeholder="Ask your AI lash coach a question..."></textarea>
+          <div class="hero-actions">
+            <button class="btn btn-gold" onclick="runAI()">Ask AI Coach</button>
+            <button class="btn btn-dark" onclick="clearAI()">Clear</button>
+          </div>
+        </div>
+
+        <div class="ai-response-wrap">
+          <div class="ai-response-head">
+            <span>AI Response</span>
+            <span id="aiStatus">Ready</span>
+          </div>
+          <div id="aiOutput" class="ai-output">
+            Your answer will appear here. Ask about technique, business, content, or client experience.
+          </div>
+        </div>
+      </div>
+
+      <aside class="ai-side-stack">
+        <div class="luxury-panel side-panel-block">
+          <p class="eyebrow">POPULAR TOPICS</p>
+          <h3>Technique Help</h3>
+          <p>Isolation, adhesive control, styling maps, retention issues, and correcting common mistakes.</p>
+        </div>
+
+        <div class="luxury-panel side-panel-block">
+          <p class="eyebrow">BUSINESS HELP</p>
+          <h3>Growth Guidance</h3>
+          <p>Pricing, booking systems, offer creation, social captions, and premium brand positioning.</p>
+        </div>
+
+        <div class="luxury-panel side-panel-block">
+          <p class="eyebrow">PRO TIP</p>
+          <h3>Ask Specific Questions</h3>
+          <p>The more detailed your question, the better the AI coach can guide you with practical answers.</p>
+        </div>
+      </aside>
+    </section>
+  </div>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/ai.js"></script>
+</body>
+</html>

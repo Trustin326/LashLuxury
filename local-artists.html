@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Artists • Lash Luxury Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body onload="loadArtistProfiles()">
+  <div class="site-shell">
+    <div id="global-nav"></div>
+
+    <section class="page-hero luxury-panel compact-hero">
+      <div>
+        <p class="eyebrow">LOCAL ARTIST DIRECTORY</p>
+        <h1 class="page-title">Book Local Lash Artists Near You</h1>
+        <p class="page-sub">
+          Discover featured beauty professionals, browse services, and connect with artists building premium local brands.
+        </p>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <div class="luxury-panel dashboard-main-panel">
+        <div class="section-head">
+          <h2>FEATURED ARTISTS</h2>
+          <a href="#artist-signup">List your profile →</a>
+        </div>
+        <div id="artistDirectoryGrid" class="course-grid course-grid-2"></div>
+      </div>
+
+      <aside class="dashboard-side-stack">
+        <div class="luxury-panel side-panel-block">
+          <p class="eyebrow">FOR ARTISTS</p>
+          <h3>Get Discovered Locally</h3>
+          <p>Pay a listing fee to add your profile, services, pricing, images, and contact details to the directory.</p>
+        </div>
+        <div class="luxury-panel side-panel-block">
+          <p class="eyebrow">VERIFICATION REQUIRED</p>
+          <h3>Professional Review</h3>
+          <p>Artists must upload BPP verification and a valid license or certificate before approval for listing.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="artist-signup" class="luxury-panel signup-panel">
+      <div class="section-head">
+        <h2>ADD YOUR ARTIST PROFILE</h2>
+        <span class="muted-badge">Paid Listing + Verification</span>
+      </div>
+
+      <form id="artistListingForm" class="luxury-form artist-form" onsubmit="event.preventDefault(); payArtistListing();">
+        <div class="form-two">
+          <div>
+            <label>Artist Name</label>
+            <input id="artistName" type="text" placeholder="Your business or artist name" required>
+          </div>
+          <div>
+            <label>City / Area</label>
+            <input id="artistCity" type="text" placeholder="Atlanta, GA" required>
+          </div>
+        </div>
+
+        <div class="form-two">
+          <div>
+            <label>Primary Service</label>
+            <input id="artistService" type="text" placeholder="Classic lashes, volume sets, wispy sets" required>
+          </div>
+          <div>
+            <label>Starting Price</label>
+            <input id="artistPrice" type="text" placeholder="$95 full sets">
+          </div>
+        </div>
+
+        <div class="form-two">
+          <div>
+            <label>Email</label>
+            <input id="artistEmail" type="email" placeholder="you@example.com" required>
+          </div>
+          <div>
+            <label>Instagram / Booking Link</label>
+            <input id="artistInstagram" type="text" placeholder="@yourbrand or booking URL">
+          </div>
+        </div>
+
+        <div class="form-two">
+          <div>
+            <label>Logo Upload</label>
+            <input id="artistLogo" type="file" accept="image/*">
+          </div>
+          <div>
+            <label>Profile Photo(s)</label>
+            <input id="artistPhotos" type="file" accept="image/*" multiple>
+          </div>
+        </div>
+
+        <div class="form-two">
+          <div>
+            <label>BPP Verification Upload <span class="required-note">*</span></label>
+            <input id="artistBppVerification" type="file" accept=".pdf,image/*" required>
+          </div>
+          <div>
+            <label>License or Certificate Upload <span class="required-note">*</span></label>
+            <input id="artistLicense" type="file" accept=".pdf,image/*" required>
+          </div>
+        </div>
+
+        <div>
+          <label>Short Bio</label>
+          <textarea id="artistBio" placeholder="Tell clients about your style, specialties, and luxury experience."></textarea>
+        </div>
+
+        <div class="verification-banner">
+          <strong>Verification required:</strong>
+          All artists must submit BPP verification and a valid license or certificate before their profile can be approved for listing.
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-gold btn-lg" type="submit">Pay & Submit Listing</button>
+          <a class="btn btn-dark btn-lg" href="pricing.html">View Pricing</a>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/local-artists.js"></script>
+  <script src="assets/stripe.js"></script>
+</body>
+</html>

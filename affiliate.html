@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Affiliate Center • Lash Luxury Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <div id="global-nav"></div>
+
+    <section class="page-hero luxury-panel compact-hero">
+      <div>
+        <p class="eyebrow">AFFILIATE EARNINGS HUB</p>
+        <h1 class="page-title">Earn By Sharing The Luxury Lash Experience</h1>
+        <p class="page-sub">
+          Promote the academy, track clicks and conversions, and grow recurring income from your audience.
+        </p>
+      </div>
+    </section>
+
+    <section class="admin-stats-grid">
+      <div class="stat-box luxury-panel">
+        <strong>1,284</strong>
+        <span>Total Clicks</span>
+      </div>
+      <div class="stat-box luxury-panel">
+        <strong>93</strong>
+        <span>Conversions</span>
+      </div>
+      <div class="stat-box luxury-panel">
+        <strong>$2,410</strong>
+        <span>Total Earned</span>
+      </div>
+      <div class="stat-box luxury-panel">
+        <strong>18%</strong>
+        <span>Commission Rate</span>
+      </div>
+    </section>
+
+    <section class="admin-grid">
+      <div class="luxury-panel admin-table-card">
+        <div class="section-head">
+          <h2>YOUR AFFILIATE LINK</h2>
+        </div>
+        <div class="affiliate-link-box">
+          <input id="refLink" value="https://yourdomain.com/?ref=student@email.com" readonly>
+          <button class="btn btn-gold" type="button" onclick="copyAffiliate()">Copy Link</button>
+        </div>
+        <div class="affiliate-assets">
+          <div class="mini-feature"><span>✓</span><p>Luxury promo captions</p></div>
+          <div class="mini-feature"><span>✓</span><p>Story and reel copy ideas</p></div>
+          <div class="mini-feature"><span>✓</span><p>Offer-driven calls to action</p></div>
+        </div>
+      </div>
+
+      <div class="luxury-panel admin-table-card">
+        <div class="section-head">
+          <h2>RECENT COMMISSIONS</h2>
+        </div>
+        <div class="luxury-table">
+          <div class="table-row table-head">
+            <span>Date</span>
+            <span>Sale</span>
+            <span>Commission</span>
+          </div>
+          <div class="table-row">
+            <span>Apr 20</span>
+            <span>Premium Course Bundle</span>
+            <span>$47</span>
+          </div>
+          <div class="table-row">
+            <span>Apr 19</span>
+            <span>Volume Mastery</span>
+            <span>$21</span>
+          </div>
+          <div class="table-row">
+            <span>Apr 18</span>
+            <span>Business Bootcamp</span>
+            <span>$53</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/common.js"></script>
+  <script>
+    function copyAffiliate(){
+      const input = document.getElementById("refLink");
+      input.select();
+      input.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+    }
+  </script>
+</body>
+</html>
